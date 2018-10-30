@@ -60,7 +60,7 @@ class asesorind_controller extends Controller
             \Storage::disk('local')->put($img2, \File::get($file));
         }
         else{
-            $img2 = 'sinfoto.png';
+            $img2 = 'sinfoto.jpg';
         }
         
         //return "$id_asesor_in y $nom_asesor y $ape_pat_in y $ape_mat_in y $telefono y $correo y $area y $id_empresa";	

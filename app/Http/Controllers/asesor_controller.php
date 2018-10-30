@@ -53,7 +53,7 @@ class asesor_controller extends Controller
             \Storage::disk('local')->put($img2, \File::get($file));
         }
         else{
-            $img2 = 'sinfoto.png';
+            $img2 = 'sinfoto.jpg';
         }
 
 		 $ase = new asesores_academicos;

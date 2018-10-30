@@ -49,7 +49,7 @@ class ranking_controller extends Controller
 
 		 $ran = new rankings; //<--despues del new va el nombre del modelo
 		 $ran->id_ranking = $request->id_ranking;
-		 $ran->ranking = $request->ranking;
+		 $ran->ranking = $request->rankings;
          $ran->id_asesor_ac = $request->id_asesor_ac;
          $ran->id_empresa = $request->id_empresa;
 		 $ran->save();

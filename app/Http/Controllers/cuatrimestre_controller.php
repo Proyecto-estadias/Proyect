@@ -23,7 +23,7 @@ class cuatrimestre_controller extends Controller
                         ->with('id_cuat',$id_cuat);  
 					
 	 }
-
+z
 	public function guardacuatrimestre(Request $request){
 		$id_cuatrimestre = $request->id_cuatrimestre;
 		$cuatri = $request->cuatri;
