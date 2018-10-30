@@ -40,6 +40,11 @@
 				<input type="text" placeholder="Nombre..." name="ape_mat_tutor" value="{{old('ape_mat_tutor')}}"><br>
 				</div>
                 
+                 @if($errors->first('archivo'))
+                <i>{{$errors->first('archivo')}}</i>
+                @endif <br>
+                
+                selecciona foto: <input type="file" name="archivo"> <br>
                 
                 
 				<!--<input type="submit" value="Guardar">
@@ -49,4 +54,5 @@
 
 			</form>
 			</div>
+    </body>
 </html>
