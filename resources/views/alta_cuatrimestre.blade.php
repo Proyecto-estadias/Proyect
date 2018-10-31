@@ -32,6 +32,12 @@
 				</select>
 				<br>
                 
+                @if($errors->first('archivo'))
+                <i>{{$errors->first('archivo')}}</i>
+                @endif <br>
+                
+                selecciona foto: <input type="file" name="archivo"> <br>
+                
                 
 				<input type="submit" value="Guardar">
 				<!--<input type="submit" value="Cancelar">-->
