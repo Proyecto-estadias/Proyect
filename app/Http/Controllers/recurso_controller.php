@@ -39,15 +39,27 @@ class recurso_controller extends Controller
 
         $this->validate($request,[
           'id_rh'=>'required|numeric',
-		  'nom_rh'=>'required|alpha',
-          'ape_pat_rh'=>'required|alpha',
-          'ape_mat_rh'=>'required|alpha',
-          'telefono'=>'required|alpha',
-          'correo'=>'required|alpha', 
-          'area'=>'required|alpha', 
-             
+		  'nom_rh'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
+          'ape_pat_rh'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
+          'ape_mat_rh'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
+          'telefono'=>['required','regex:/^[0-9]{10}$/'],
+          'correo'=>'required|email', 
+          'area'=>['required','regex:/^[A-Z]{1}[a-z]+$/'], 
+          'archivo' => 'required','image|mimes:jpg,jpeg,if,png',
 			
-		 ]);	
+		 ]);		
+        
+         $file = $request->file('archivo');
+        if($file!="")
+        {
+            $ldate = date('Ymd_His_');
+            $img = $file->getClientOriginalName();
+            $img2 = $ldate.$img;
+            \Storage::disk('local')->put($img2, \File::get($file));
+        }
+        else{
+            $img2 = 'sinfoto.jpg';
+        }
         
         //return "$id_asesor_in y $nom_asesor y $ape_pat_in y $ape_mat_in y $telefono y $correo y $area y $id_empresa";	
 
@@ -60,10 +72,16 @@ class recurso_controller extends Controller
          $rh->correo = $request->correo;
          $rh->area = $request->area;
          $rh->id_empresa = $request->id_empresa;
+         $rh->archivo = $img2;
 		 $rh->save();
 		 $proceso = "Alta Recursos Humanos";
 		 $mensaje = "Recurso Humano guardado correctamente";
 		 return view("mensaje")->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
+    
+    public function reporterecurso(){
+        $recursos_humanos = recursos_humanos::orderBy('id_rh','asc')->get();
+        return view ('reporte_recurso')->with('nom_rh',$recursos_humanos);
+    }
 		//return "$id_ciclo_escolar y $ciclo_escolar";	
 }

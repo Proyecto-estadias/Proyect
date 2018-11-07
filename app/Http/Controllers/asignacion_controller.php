@@ -59,11 +59,17 @@ class asignacion_controller extends Controller
 
 		//no se recibe el archivo
 
-        //$this->validate($request,[
-       //   'id_ranking'=>'required|numeric',
-		 // 'ranking'=>'required|alpha',     
+        $this->validate($request,[
+         'id_evaluacion'=>'required|numeric',
+		 'calificacion_in'=>['required','regex:/^[0-9]{1}[.][0-9]{1}$/'],
+         'id_asesor_ac'=>'required',
+         'id_empresa'=>'required',
+         'id_asesor_in'=>'required',
+         'id_carrera'=>'required', 
+         'id_cuatrimeste'=>'required', 
+         'id_ciclo_escolar' =>'required',   
 			
-		// ]);	
+		 ]);	
         
         //return "$id_asesor_in y $nom_asesor y $ape_pat_in y $ape_mat_in y $telefono y $correo y $area y $id_empresa";	
 

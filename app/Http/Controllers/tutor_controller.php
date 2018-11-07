@@ -28,12 +28,13 @@ class tutor_controller extends Controller
 
 		//no se recibe el archivo
 
-		 $this->validate($request,[
+		$this->validate($request,[
 		 	'id_tutores'=>'required|numeric',
-			'nom_tutor'=>'required|alpha',
-            'ape_pat_tutpr'=>'required|alpha',
-            'ape_mat_tutor'=>'required|alpha',
-			
+			'nom_tutor'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
+            'ape_pat_tutpr'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
+            'ape_mat_tutor'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
+			'archivo' => 'required','image|mimes:jpg,jpeg,if,png',
+            
 		 ]);
         
         $file = $request->file('archivo');

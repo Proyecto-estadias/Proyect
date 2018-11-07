@@ -38,15 +38,16 @@ class asesorind_controller extends Controller
 
 		//no se recibe el archivo
 
+        //validacion
         $this->validate($request,[
-          'id_asesor_in'=>'required|numeric',
-		  'nom_asesor_in'=>'required|alpha',
-          'ape_pat_in'=>'required|alpha',
-          'ape_mat_in'=>'required|alpha',
-          'telefono'=>'required|alpha',
-          'correo'=>'required|alpha', 
-          'area'=>'required|alpha', 
-             
+         'id_asesor_in'=>'required|numeric',
+		 'nom_asesor_in'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
+         'ape_pat_in'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
+         'ape_mat_in'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
+         'telefono'=>['required','regex:/^[0-9]{10}$/'],
+         'correo'=>'required|email', 
+         'area'=>['required','regex:/^[A-Z]{1}[a-z]+$/'], 
+         'archivo' => 'required','image|mimes:jpg,jpeg,if,png',   
 			
 		 ]);	
         

@@ -32,17 +32,16 @@ class asesor_controller extends Controller
 
 		 $this->validate($request,[
 		 	'id_asesor_ac'=>'required|numeric',
-			'nom_asesor_ac'=>'required|alpha',
-            'ap_pat_ac'=>'required|alpha',
-            'ap_mat_ac'=>'required|alpha',
-            'telefono'=>'required|alpha',
-            'correo'=>'required|alpha', 
-            'area'=>'required|alpha',
-            'archivo' => 'image|mimes:jpg,jpeg,if,png'
+			'nom_asesor_ac'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
+            'ap_pat_ac'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
+            'ap_mat_ac'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
+            'telefono'=>['required','regex:/^[0-9]{10}$/'],
+            'correo'=>'required|email', 
+            'area'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
+            'archivo' => 'required','image|mimes:jpg,jpeg,if,png',
             
 			
 		 ]);
-        
         
         $file = $request->file('archivo');
         if($file!="")

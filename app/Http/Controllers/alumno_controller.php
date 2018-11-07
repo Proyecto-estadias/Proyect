@@ -50,11 +50,17 @@ class alumno_controller extends Controller
 
 		//no se recibe el archivo
 
-        //$this->validate($request,[
-       //   'id_ranking'=>'required|numeric',
-		 // 'ranking'=>'required|alpha',     
+       //Validación
+          $this->validate($request,[
+		 	'id_alumno'=>'required|numeric',
+			'nom_alumno'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
+            'ape_pat_alumno'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
+            'ape_mat_alumno'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
+            'telefono'=>['required','regex:/^[0-9]{10}$/'],
+            'correo'=>'required|email', 
+            'archivo' => 'required','image|mimes:jpg,jpeg,if,png', 
 			
-		// ]);	
+		 ]);	
         
         //return "$id_asesor_in y $nom_asesor y $ape_pat_in y $ape_mat_in y $telefono y $correo y $area y $id_empresa";	
         

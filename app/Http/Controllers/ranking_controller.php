@@ -39,11 +39,11 @@ class ranking_controller extends Controller
 
 		//no se recibe el archivo
 
-        //$this->validate($request,[
-       //   'id_ranking'=>'required|numeric',
-		 // 'ranking'=>'required|alpha',     
+        $this->validate($request,[
+            'id_ranking'=>'required|numeric',
+            'ranking'=>['required','regex:/^[0-9]{2}$/'],     
 			
-		// ]);	
+		]);	
         
         //return "$id_asesor_in y $nom_asesor y $ape_pat_in y $ape_mat_in y $telefono y $correo y $area y $id_empresa";	
 

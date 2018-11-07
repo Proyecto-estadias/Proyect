@@ -27,19 +27,38 @@ class carrera_controller extends Controller
 
 		//no se recibe el archivo
 
+        //validacion
 		 $this->validate($request,[
 		 	'id_carrera'=>'required|numeric',
-			'carrera'=>'required|alpha',
-			
-		 ]);	
+			'carrera'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
+			'archivo' => 'required','image|mimes:jpg,jpeg,if,png', 
+		 ]);
+        
+         $file = $request->file('archivo');
+        if($file!="")
+        {
+            $ldate = date('Ymd_His_');
+            $img = $file->getClientOriginalName();
+            $img2 = $ldate.$img;
+            \Storage::disk('local')->put($img2, \File::get($file));
+        }
+        else{
+            $img2 = 'sinfoto.jpg';
+        }
 
 		 $car = new carreras;
 		 $car->id_carrera = $request->id_carrera;
 		 $car->carrera = $request->carrera;
+         $car->archivo = $img2;
 		 $car->save();
 		 $proceso = "ALTA Carrera";
 		 $mensaje = "Carrera guardada correctamente";
 		 return view("mensaje")->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
+    
+    public function reportecarrera(){
+        $carreras = carreras::orderBy('id_carrera','asc')->get();
+        return view ('reporte_carrera')->with('carrera',$carreras);
+    }
 		//return "$id_ciclo_escolar y $ciclo_escolar";	
 }
