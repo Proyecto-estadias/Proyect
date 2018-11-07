@@ -21,34 +21,37 @@
 		        <i> {{ $errors->first('calificacion_in') }} </i>
 		        @endif <br>
 		        <div class="form-group">
-		        	<label for="grupo">Nombre:</label>
-				<input type="text" placeholder="Nombre..." name="calificacion_in" value="{{old('calificacion_in')}}"><br>
+		        	<label for="grupo">calificacion Industrial:</label>
+				<input type="text" placeholder="Calificacion Industrial..." name="calificacion_in" value="{{old('calificacion_in')}}"><br>
 				</div>
                 
 
-                Selecciona Asesor_Academico<select name="id_asesor_ac">
+                Selecciona Asesor Academico<select name="id_asesor_ac">
 				@foreach($asesores_academicos as $ase)
-				<option value= '{{$ase->id_asesor_ac}}'>{{$ase->asesores_academicos}} 
+				<option value= '{{$ase->id_asesor_ac}}'>{{$ase->nom_asesor_ac}} 
 				</option>	
 				@endforeach
 				</select>
 				<br>
                 
-                Selecciona Empresa<select name="id_empresas">
+                  Selecciona Empresa<select name="id_empresas">
 				@foreach($empresas as $emp)
-				<option value= '{{$emp->id_empresa}}'>{{$emp->empresas}} 
+				<option value= '{{$emp->id_empresa}}'>{{$emp->nom_empresa}} 
 				</option>	
 				@endforeach
 				</select>
 				<br>
                 
-                Selecciona Asesor Industrial<select name="id_asesores">
+                
+                
+                Selecciona Asesor Insdustrial<select name="id_asesor_in">
 				@foreach($asesores_industriales as $ind)
-				<option value= '{{$ind->id_grupo}}'>{{$ind->asesores_industriales}} 
+				<option value= '{{$ind->id_asesor_in}}'>{{$ind->nom_asesor_in}} 
 				</option>	
 				@endforeach
 				</select>
 				<br>
+                
                 
                  Selecciona Carrera<select name="id_carreras">
 				@foreach($carreras as $car)

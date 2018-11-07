@@ -25,9 +25,9 @@
 				<input type="text" placeholder="Nombre..." name="ranking" value="{{old('ranking')}}"><br>
 				</div>
 
-                Selecciona Asesor Academico<select name="id_asesores">
+                Selecciona Asesor Academico<select name="id_asesor_ac">
 				@foreach($asesores_academicos as $ase)
-				<option value= '{{$ase->id_asesores}}'>{{$ase->nom_asesor_ac}} 
+				<option value= '{{$ase->id_asesor_ac}}'>{{$ase->nom_asesor_ac}} 
 				</option>	
 				@endforeach
 				</select>
@@ -35,7 +35,7 @@
                 
                 Selecciona Empresa<select name="id_empresas">
 				@foreach($empresas as $emp)
-				<option value= '{{$emp->id_empresas}}'>{{$emp->nom_empresa}}
+				<option value= '{{$emp->id_empresa}}'>{{$emp->nom_empresa}} 
 				</option>	
 				@endforeach
 				</select>
