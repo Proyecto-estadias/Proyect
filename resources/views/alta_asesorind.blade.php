@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h1>Alta Aseror Industrial</h1>
+@extends('administrador')
+@section('admincontent')
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<center><h1>Alta Aseror Industrial</h1></center>
 
 			
-			<div align="center" class="row">
+			<div align="center" 
 			<form role="form" action="{{route('guardaasesorind')}}" method="POST" class="text-center" enctype="multipart/form-data"> 
 				{{csrf_field()}}
 
@@ -81,11 +82,13 @@
                 selecciona foto: <input type="file" name="archivo"> <br>
                 
                 
-				<input type="submit" value="Guardar">
+				<!--<input type="submit" value="Guardar">
 				<!--<input type="submit" value="Cancelar">-->
-				
+				<br><button value="Guardar" class='btn btn-md btn-success'> Guardar </button>
+				<button value="Cancelar" class='btn btn-md btn-danger'> Cancelar </button>
+
+
 
 			</form>
 			</div>
-    </body>
-</html>
+  @stop

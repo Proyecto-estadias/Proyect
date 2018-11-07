@@ -1,5 +1,7 @@
-<html>
-<body>
+@extends('administrador')
+@section('admincontent')
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
       <h1 align="center">Reporte Alumnos</h1><br>
         <div class="container">
           <div class="row table-responsive">
@@ -28,5 +30,4 @@
     </table>
             </div>
     </div>
-            </body>
-              </html>
+           @stop

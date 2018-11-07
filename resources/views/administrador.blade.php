@@ -95,7 +95,7 @@
               <a href="{{route('reportealumno')}}">Reporte Alumnos</a>
             </li>
             <li>
-              <a href="register.html">Reporte Asignacion</a>
+              <a href="{{route('altaasignacion')}}">Reporte Asignacion</a> 
             </li>
             <li>
               <a href="{{route('reportecarrera')}}">Reporte Carreras</a>
@@ -129,7 +129,7 @@
               <a href="{{route('altaasesor')}}">Asesores Academicos</a>
             </li>
             <li>
-              <a href="#">Reporte Asesores Academicos</a>
+              <a href="{{route('reporteasesoraca')}}">Reporte Asesores Academicos</a> 
             
           </ul>
 </li>
