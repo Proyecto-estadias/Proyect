@@ -35,23 +35,19 @@ class ranking_controller extends Controller
 		$id_ranking = $request->id_ranking;
 		$ranking = $request->ranking;
         $id_asesor_ac = $request->id_asesor_ac;
-        $id_empresa = $request->id_empresa;
+        $id_empresa = $request->id_empresas;
 
 		//no se recibe el archivo
 
-        $this->validate($request,[
-            'id_ranking'=>'required|numeric',
-            'ranking'=>['required','regex:/^[0-9]{2}$/'],     
-			
-		]);	
+        
         
         //return "$id_asesor_in y $nom_asesor y $ape_pat_in y $ape_mat_in y $telefono y $correo y $area y $id_empresa";	
 
 		 $ran = new rankings; //<--despues del new va el nombre del modelo
 		 $ran->id_ranking = $request->id_ranking;
-		 $ran->ranking = $request->rankings;
+		 $ran->ranking = $request->ranking;
          $ran->id_asesor_ac = $request->id_asesor_ac;
-         $ran->id_empresa = $request->id_empresa;
+         $ran->id_empresa = $request->id_empresas;
 		 $ran->save();
 		 $proceso = "Alta Ranking";
 		 $mensaje = "Ranking guardada correctamente";

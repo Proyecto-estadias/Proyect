@@ -59,17 +59,7 @@ class asignacion_controller extends Controller
 
 		//no se recibe el archivo
 
-        $this->validate($request,[
-         'id_evaluacion'=>'required|numeric',
-		 'calificacion_in'=>['required','regex:/^[0-9]{1}[.][0-9]{1}$/'],
-         'id_asesor_ac'=>'required',
-         'id_empresa'=>'required',
-         'id_asesor_in'=>'required',
-         'id_carrera'=>'required', 
-         'id_cuatrimeste'=>'required', 
-         'id_ciclo_escolar' =>'required',   
-			
-		 ]);	
+        
         
         //return "$id_asesor_in y $nom_asesor y $ape_pat_in y $ape_mat_in y $telefono y $correo y $area y $id_empresa";	
 
@@ -77,7 +67,7 @@ class asignacion_controller extends Controller
 		 $asi->id_evaluacion = $request->id_id_evaluaciones;
 		 $asi->calificacion_in = $request->calificacion_in;
          $asi->id_asesor_ac = $request->id_asesor_ac;
-         $asi->id_empresa = $request->id_empresa;
+         $asi->id_empresa = $request->id_empresas;
          $asi->id_asesor_in = $request->id_asesor_in;
          $asi->id_carrera = $request->id_carreras;
          $asi->id_cuatrimestre = $request->id_cuatrimestres;
