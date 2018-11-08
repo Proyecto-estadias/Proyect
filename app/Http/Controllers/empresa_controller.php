@@ -14,7 +14,7 @@ class empresa_controller extends Controller
 		$id_empresas = $clavequesigue[0]->id_empresa+1;
 
 //despues de $clave = va el modelo que es este caso es grupo
-		return view ('alta_empresa')
+		return view ('empresa.alta_empresa')
 						->with('id_empresas',$id_empresas);
 					
 	 }
@@ -34,11 +34,11 @@ class empresa_controller extends Controller
         //validacion
 		 $this->validate($request,[
 		 	'id_empresa'=>'required|numeric',
-			'nom_empresa'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
-            'calle'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
+			'nom_empresa'=>['required','regex:/^[\pL\s\-]+$/u'],
+            'calle'=>['required','regex:/^[\pL\s\-]+$/u'],
             'numero'=>'required|integer',
-            'colonia'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
-            'municipio'=>['required','regex:/^[A-Z]{1}[a-z]+$/'],
+            'colonia'=>['required','regex:/^[\pL\s\-]+$/u'],
+            'municipio'=>['required','regex:/^[\pL\s\-]+$/u'],
             'telefono'=>['required','regex:/^[0-9]{10}$/'],
             'correo'=>'required|email', 
 			'archivo' => 'required','image|mimes:jpg,jpeg,if,png',
@@ -76,7 +76,7 @@ class empresa_controller extends Controller
     
     public function reporteempresa(){
         $empresas = empresas::orderBy('id_empresa','asc')->get();
-        return view ('reporte_empresa')->with('nom_empresa',$empresas);
+        return view ('empresa.reporte_empresa')->with('nom_empresa',$empresas);
     }
 		//return "$id_ciclo_escolar y $ciclo_escolar";	
 }
